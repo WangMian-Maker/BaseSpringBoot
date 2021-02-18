@@ -11,4 +11,5 @@ import org.springframework.stereotype.Service;
 @Service
 public interface RoleService {
     public Role findByRoleName(String roleName);
+    public void save(Role role);
 }

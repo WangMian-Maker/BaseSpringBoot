@@ -1424,7 +1424,7 @@ sequence|table|16439|16441|1
     <database id="3" parent="1" name="she_said">
       <ObjectId>24648</ObjectId>
       <Owner>postgres</Owner>
-      <IntrospectionStateNumber>1468</IntrospectionStateNumber>
+      <IntrospectionStateNumber>1482</IntrospectionStateNumber>
       <Relations>sequence|table|24963|24965|1
 sequence|table|24971|24973|1
 sequence|table|24989|24991|1
@@ -1622,7 +1622,7 @@ UC/10
 </Acl>
       <StateNumber>359</StateNumber>
       <Owner>postgres</Owner>
-      <IntrospectionStateNumber>1469</IntrospectionStateNumber>
+      <IntrospectionStateNumber>1483</IntrospectionStateNumber>
       <Current>1</Current>
     </schema>
     <extension id="33" parent="3" name="plpgsql">
@@ -1796,7 +1796,7 @@ UC/10
     <table id="58" parent="32" name="permission">
       <ObjectId>24965</ObjectId>
       <Owner>postgres</Owner>
-      <StateNumber>1462</StateNumber>
+      <StateNumber>1473</StateNumber>
     </table>
     <table id="59" parent="32" name="role">
       <ObjectId>24973</ObjectId>
@@ -2178,7 +2178,19 @@ UC/10
       <StateNumber>1456</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <index id="117" parent="58" name="permission_pkey">
+    <column id="117" parent="58" name="route">
+      <Position>3</Position>
+      <DataType>varchar(255)|0s</DataType>
+      <StateNumber>1472</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <column id="118" parent="58" name="url">
+      <Position>4</Position>
+      <DataType>varchar(255)|0s</DataType>
+      <StateNumber>1473</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <index id="119" parent="58" name="permission_pkey">
       <ObjectId>24969</ObjectId>
       <StateNumber>1456</StateNumber>
       <ColNames>id</ColNames>
@@ -2188,14 +2200,14 @@ UC/10
       <CollationIds>0</CollationIds>
       <ClassIds>3124</ClassIds>
     </index>
-    <key id="118" parent="58" name="permission_pkey">
+    <key id="120" parent="58" name="permission_pkey">
       <ObjectId>24970</ObjectId>
       <StateNumber>1456</StateNumber>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
       <UnderlyingIndexName>permission_pkey</UnderlyingIndexName>
     </key>
-    <column id="119" parent="59" name="id">
+    <column id="121" parent="59" name="id">
       <Position>1</Position>
       <DataType>bigint|0s</DataType>
       <NotNull>1</NotNull>
@@ -2203,13 +2215,13 @@ UC/10
       <DefaultExpression>nextval(&apos;role_id_seq&apos;::regclass)</DefaultExpression>
       <TypeId>20</TypeId>
     </column>
-    <column id="120" parent="59" name="role_name">
+    <column id="122" parent="59" name="role_name">
       <Position>2</Position>
       <DataType>varchar(255)|0s</DataType>
       <StateNumber>1457</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <index id="121" parent="59" name="role_pkey">
+    <index id="123" parent="59" name="role_pkey">
       <ObjectId>24977</ObjectId>
       <StateNumber>1457</StateNumber>
       <ColNames>id</ColNames>
@@ -2219,28 +2231,28 @@ UC/10
       <CollationIds>0</CollationIds>
       <ClassIds>3124</ClassIds>
     </index>
-    <key id="122" parent="59" name="role_pkey">
+    <key id="124" parent="59" name="role_pkey">
       <ObjectId>24978</ObjectId>
       <StateNumber>1457</StateNumber>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
       <UnderlyingIndexName>role_pkey</UnderlyingIndexName>
     </key>
-    <column id="123" parent="60" name="pid">
+    <column id="125" parent="60" name="pid">
       <Position>1</Position>
       <DataType>bigint|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>1458</StateNumber>
       <TypeId>20</TypeId>
     </column>
-    <column id="124" parent="60" name="child_pid">
+    <column id="126" parent="60" name="child_pid">
       <Position>2</Position>
       <DataType>bigint|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>1458</StateNumber>
       <TypeId>20</TypeId>
     </column>
-    <index id="125" parent="60" name="she_permission_child_pkey">
+    <index id="127" parent="60" name="she_permission_child_pkey">
       <ObjectId>24982</ObjectId>
       <StateNumber>1458</StateNumber>
       <ColNames>pid
@@ -2251,7 +2263,7 @@ child_pid</ColNames>
       <CollationIds>0,0</CollationIds>
       <ClassIds>3124,3124</ClassIds>
     </index>
-    <key id="126" parent="60" name="she_permission_child_pkey">
+    <key id="128" parent="60" name="she_permission_child_pkey">
       <ObjectId>24983</ObjectId>
       <StateNumber>1458</StateNumber>
       <ColNames>pid
@@ -2259,7 +2271,7 @@ child_pid</ColNames>
       <Primary>1</Primary>
       <UnderlyingIndexName>she_permission_child_pkey</UnderlyingIndexName>
     </key>
-    <foreign-key id="127" parent="60" name="fkj0gdbttg6a4kpim0ir32n332o">
+    <foreign-key id="129" parent="60" name="fkj0gdbttg6a4kpim0ir32n332o">
       <ObjectId>25010</ObjectId>
       <StateNumber>1463</StateNumber>
       <ColNames>pid</ColNames>
@@ -2269,7 +2281,7 @@ child_pid</ColNames>
       <RefKeyName>permission_pkey</RefKeyName>
       <RefColNames>id</RefColNames>
     </foreign-key>
-    <foreign-key id="128" parent="60" name="fkat682qgmxd2kai53502rh1guc">
+    <foreign-key id="130" parent="60" name="fkat682qgmxd2kai53502rh1guc">
       <ObjectId>25005</ObjectId>
       <StateNumber>1462</StateNumber>
       <ColNames>child_pid</ColNames>
@@ -2279,21 +2291,21 @@ child_pid</ColNames>
       <RefKeyName>permission_pkey</RefKeyName>
       <RefColNames>id</RefColNames>
     </foreign-key>
-    <column id="129" parent="61" name="rid">
+    <column id="131" parent="61" name="rid">
       <Position>1</Position>
       <DataType>bigint|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>1459</StateNumber>
       <TypeId>20</TypeId>
     </column>
-    <column id="130" parent="61" name="pid">
+    <column id="132" parent="61" name="pid">
       <Position>2</Position>
       <DataType>bigint|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>1459</StateNumber>
       <TypeId>20</TypeId>
     </column>
-    <index id="131" parent="61" name="she_role_permissions_pkey">
+    <index id="133" parent="61" name="she_role_permissions_pkey">
       <ObjectId>24987</ObjectId>
       <StateNumber>1459</StateNumber>
       <ColNames>pid
@@ -2304,7 +2316,7 @@ rid</ColNames>
       <CollationIds>0,0</CollationIds>
       <ClassIds>3124,3124</ClassIds>
     </index>
-    <key id="132" parent="61" name="she_role_permissions_pkey">
+    <key id="134" parent="61" name="she_role_permissions_pkey">
       <ObjectId>24988</ObjectId>
       <StateNumber>1459</StateNumber>
       <ColNames>pid
@@ -2312,7 +2324,7 @@ rid</ColNames>
       <Primary>1</Primary>
       <UnderlyingIndexName>she_role_permissions_pkey</UnderlyingIndexName>
     </key>
-    <foreign-key id="133" parent="61" name="fknpcw0eielircxlgh5297b41tc">
+    <foreign-key id="135" parent="61" name="fknpcw0eielircxlgh5297b41tc">
       <ObjectId>25020</ObjectId>
       <StateNumber>1465</StateNumber>
       <ColNames>rid</ColNames>
@@ -2322,7 +2334,7 @@ rid</ColNames>
       <RefKeyName>role_pkey</RefKeyName>
       <RefColNames>id</RefColNames>
     </foreign-key>
-    <foreign-key id="134" parent="61" name="fk66gmigm18ypdlts7wt1ryoiwx">
+    <foreign-key id="136" parent="61" name="fk66gmigm18ypdlts7wt1ryoiwx">
       <ObjectId>25015</ObjectId>
       <StateNumber>1464</StateNumber>
       <ColNames>pid</ColNames>
@@ -2332,7 +2344,7 @@ rid</ColNames>
       <RefKeyName>permission_pkey</RefKeyName>
       <RefColNames>id</RefColNames>
     </foreign-key>
-    <column id="135" parent="62" name="id">
+    <column id="137" parent="62" name="id">
       <Position>1</Position>
       <DataType>bigint|0s</DataType>
       <NotNull>1</NotNull>
@@ -2340,19 +2352,19 @@ rid</ColNames>
       <DefaultExpression>nextval(&apos;she_user_id_seq&apos;::regclass)</DefaultExpression>
       <TypeId>20</TypeId>
     </column>
-    <column id="136" parent="62" name="password">
+    <column id="138" parent="62" name="password">
       <Position>2</Position>
       <DataType>varchar(255)|0s</DataType>
       <StateNumber>1460</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="137" parent="62" name="username">
+    <column id="139" parent="62" name="username">
       <Position>3</Position>
       <DataType>varchar(255)|0s</DataType>
       <StateNumber>1460</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <index id="138" parent="62" name="she_user_pkey">
+    <index id="140" parent="62" name="she_user_pkey">
       <ObjectId>24998</ObjectId>
       <StateNumber>1460</StateNumber>
       <ColNames>id</ColNames>
@@ -2362,28 +2374,28 @@ rid</ColNames>
       <CollationIds>0</CollationIds>
       <ClassIds>3124</ClassIds>
     </index>
-    <key id="139" parent="62" name="she_user_pkey">
+    <key id="141" parent="62" name="she_user_pkey">
       <ObjectId>24999</ObjectId>
       <StateNumber>1460</StateNumber>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
       <UnderlyingIndexName>she_user_pkey</UnderlyingIndexName>
     </key>
-    <column id="140" parent="63" name="uid">
+    <column id="142" parent="63" name="uid">
       <Position>1</Position>
       <DataType>bigint|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>1461</StateNumber>
       <TypeId>20</TypeId>
     </column>
-    <column id="141" parent="63" name="rid">
+    <column id="143" parent="63" name="rid">
       <Position>2</Position>
       <DataType>bigint|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>1461</StateNumber>
       <TypeId>20</TypeId>
     </column>
-    <index id="142" parent="63" name="she_user_roles_pkey">
+    <index id="144" parent="63" name="she_user_roles_pkey">
       <ObjectId>25003</ObjectId>
       <StateNumber>1461</StateNumber>
       <ColNames>rid
@@ -2394,7 +2406,7 @@ uid</ColNames>
       <CollationIds>0,0</CollationIds>
       <ClassIds>3124,3124</ClassIds>
     </index>
-    <key id="143" parent="63" name="she_user_roles_pkey">
+    <key id="145" parent="63" name="she_user_roles_pkey">
       <ObjectId>25004</ObjectId>
       <StateNumber>1461</StateNumber>
       <ColNames>rid
@@ -2402,7 +2414,7 @@ uid</ColNames>
       <Primary>1</Primary>
       <UnderlyingIndexName>she_user_roles_pkey</UnderlyingIndexName>
     </key>
-    <foreign-key id="144" parent="63" name="fk3l1cvaa3n1ewa6x634wwt7viq">
+    <foreign-key id="146" parent="63" name="fk3l1cvaa3n1ewa6x634wwt7viq">
       <ObjectId>25030</ObjectId>
       <StateNumber>1467</StateNumber>
       <ColNames>uid</ColNames>
@@ -2412,7 +2424,7 @@ uid</ColNames>
       <RefKeyName>she_user_pkey</RefKeyName>
       <RefColNames>id</RefColNames>
     </foreign-key>
-    <foreign-key id="145" parent="63" name="fk3alt7fr310jt8551vdfmg2w10">
+    <foreign-key id="147" parent="63" name="fk3alt7fr310jt8551vdfmg2w10">
       <ObjectId>25025</ObjectId>
       <StateNumber>1466</StateNumber>
       <ColNames>rid</ColNames>

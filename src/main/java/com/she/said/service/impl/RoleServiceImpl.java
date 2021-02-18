@@ -3,7 +3,6 @@ package com.she.said.service.impl;
 import com.she.said.entity.Role;
 import com.she.said.repository.RoleRepository;
 import com.she.said.service.RoleService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 /**
@@ -23,5 +22,10 @@ public class RoleServiceImpl implements RoleService {
     @Override
     public Role findByRoleName(String roleName) {
         return roleRepository.findByRoleName(roleName);
+    }
+
+    @Override
+    public void save(Role role) {
+        roleRepository.save(role);
     }
 }

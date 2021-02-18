@@ -15,11 +15,7 @@ import java.util.Set;
 public class Role extends BaseEntity{
     private String roleName;
 
-    @ManyToMany
-    @JoinTable(name = "she_user_roles", joinColumns = {@JoinColumn(name = "rid")},inverseJoinColumns = {@JoinColumn(name = "uid")})
-    private Set<User> users;
-
-    @ManyToMany
+    @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(name = "she_role_permissions", joinColumns = {@JoinColumn(name = "rid")},inverseJoinColumns = {@JoinColumn(name = "pid")})
     private Set<Permission> permissions;
 }

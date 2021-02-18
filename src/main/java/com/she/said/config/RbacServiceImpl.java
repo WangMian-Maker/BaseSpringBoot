@@ -38,9 +38,9 @@ public class RbacServiceImpl {
         return hasPermission(authorities,request.getRequestURI());
     }
     private Boolean roleHasPermission(Role role,String requestUrl){
-        Set<Permission> rights=role.getPermissions();
+        Set<Permission> permissions=role.getPermissions();
         AntPathMatcher antPathMatcher=new AntPathMatcher();
-        for (Permission permission:rights){
+        for (Permission permission:permissions){
             if(antPathMatcher.match(permission.getUrl(),requestUrl)){
                 return true;
             }

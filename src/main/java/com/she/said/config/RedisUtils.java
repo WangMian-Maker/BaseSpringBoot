@@ -2,6 +2,7 @@ package com.she.said.config;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
+import org.springframework.stereotype.Component;
 import org.springframework.util.CollectionUtils;
 
 import java.util.Collection;
@@ -16,9 +17,12 @@ import java.util.concurrent.TimeUnit;
  * @description to do
  */
 public class RedisUtils {
-    @Autowired
     private static RedisTemplate<String, Object> redisTemplate;
-
+    static {
+        if(redisTemplate==null){
+            redisTemplate= (RedisTemplate<String, Object>) SpringUtil.getBean("redisTemplate");
+        }
+    }
     /**
      * 指定缓存失效时间
      *
@@ -63,6 +67,8 @@ public class RedisUtils {
         }
     }
 
+
+
     /**
      * 删除缓存
      *
@@ -91,6 +97,9 @@ public class RedisUtils {
         return key == null ? null : redisTemplate.opsForValue().get(key);
     }
 
+    public static Object get(String key,String item){
+        return key==null||item==null?null:redisTemplate.opsForHash().get(key,item);
+    }
     /**
      * 普通缓存放入
      *

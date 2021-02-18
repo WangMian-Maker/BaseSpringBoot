@@ -4,6 +4,7 @@ import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 import lombok.Data;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
 
@@ -16,6 +17,7 @@ import java.util.List;
  * @date 2021-02-08 14:37:40
  * @description to do
  */
+@Slf4j
 public class JwtUtil {
     public final static String TOKEN_HEADER="Authorization";
     public final static String TOKEN_PREFIX="Bearer ";
@@ -38,7 +40,7 @@ public class JwtUtil {
 
     private static final String REDIS_ITEM="token";
 
-    public static final String ANYONE="anyone";
+    public static final String ANYONE="role_anyone";
 
     /**
      * @description 基于用户名和多角色创建的token
@@ -59,7 +61,7 @@ public class JwtUtil {
                 .setIssuer(ISS)
                 .setExpiration(new Date(System.currentTimeMillis()+expiration*1000))
                 .compact();
-        RedisUtils.put(username,REDIS_ITEM,token,0);
+        RedisUtils.put(username,REDIS_ITEM,token,expiration);
         return token;
     }
 
@@ -75,9 +77,9 @@ public class JwtUtil {
     }
     public static loginStatus hasLogin(String token){
         String username=getUsername(token);
-        boolean hasLogin= RedisUtils.hasKey(username+"_"+REDIS_ITEM);
-        String tmp=(String) RedisUtils.get(username+"_"+REDIS_ITEM);
-        return new loginStatus(hasLogin,tmp);
+        boolean hasLogin= RedisUtils.hasKey(username);
+        String tmp=(String) RedisUtils.get(username,REDIS_ITEM);
+        return new loginStatus(hasLogin&&tmp!=null,tmp);
     }
 
     public static void logout(String username){
@@ -108,7 +110,7 @@ public class JwtUtil {
 
     public static boolean isExpiration(String token){
         Date expiration=getTokenBody(token).getExpiration();
-        return expiration.after(new Date());
+        return expiration.before(new Date());
     }
 
     /**

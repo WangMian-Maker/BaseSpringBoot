@@ -14,8 +14,13 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping
 public class Test {
-    @GetMapping("/login")
+    @GetMapping("/test")
     public String test(){
         return "hello";
+    }
+
+    @GetMapping("/data/test")
+    public String data(){
+        return "data_hello";
     }
 }

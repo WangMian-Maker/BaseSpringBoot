@@ -16,9 +16,6 @@ public class Permission extends BaseEntity{
     private String permissionName;
     private String url;
     private String route;
-    @ManyToMany
-    @JoinTable(name = "she_role_permissions", joinColumns = {@JoinColumn(name = "pid")},inverseJoinColumns = {@JoinColumn(name = "rid")})
-    private Set<Role> roles;
 
     @ManyToMany
     @JoinTable(name = "she_permission_child", joinColumns = {@JoinColumn(name = "pid")},inverseJoinColumns = {@JoinColumn(name = "child_pid")})
